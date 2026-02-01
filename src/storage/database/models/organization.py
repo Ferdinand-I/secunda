@@ -20,7 +20,7 @@ class Organization(Base, IdMixin):
     building_id: Mapped[int] = mapped_column(ForeignKey("buildings.id", ondelete="CASCADE"))
 
     # Relationships
-    building: Mapped[list["Building"]] = relationship("Building", back_populates="organizations")
+    building: Mapped["Building"] = relationship("Building", back_populates="organizations")
     # M2M
     activities: Mapped[list["Activity"]] = relationship(
         "Activity",

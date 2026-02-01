@@ -3,6 +3,7 @@ __all__ = (
     "Base",
     "Building",
     "Organization",
+    "organization_activity",
 )
 
 

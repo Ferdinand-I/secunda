@@ -24,6 +24,6 @@ class Activity(Base, IdMixin):
     # M2M
     organizations: Mapped[list["Organization"]] = relationship(
         "Organization",
-        back_populates="building",
+        back_populates="activities",
         secondary="organizations_activities",
     )

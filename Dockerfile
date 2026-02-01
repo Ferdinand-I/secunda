@@ -8,7 +8,9 @@ RUN pip install uv
 
 WORKDIR /app
 
-COPY pyproject.toml uv.lock start_backend.sh alembic.ini ./
+COPY pyproject.toml uv.lock start_backend.sh alembic.ini cli.py ./
+
+COPY data ./data
 
 RUN uv sync --locked
 

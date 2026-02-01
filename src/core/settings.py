@@ -44,7 +44,7 @@ class DBConfig(BaseSettingsConfig):
     host: str = "localhost"  # Docker DSN
     port: int = 5432
     user: str = "postgres"
-    password: str
+    password: SecretStr = "postgres"
     name: str
 
     # Engine
@@ -57,7 +57,7 @@ class DBConfig(BaseSettingsConfig):
         return URL.create(
             drivername="postgresql+asyncpg",
             username=self.user,
-            password=self.password,
+            password=self.password.get_secret_value(),
             host=self.host,
             port=self.port,
             database=self.name,
