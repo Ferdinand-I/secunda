@@ -1,2 +1,1 @@
-# secunda
-Secunda REST API
+# Secunda REST API
