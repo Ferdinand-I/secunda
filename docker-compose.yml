@@ -17,7 +17,7 @@ services:
     volumes:
       - ./src:/app/src  # Just to reload on change, not needed in production
     healthcheck:
-      test: curl --fail http://localhost:8000/api/v1/ping || exit 1
+      test: curl --fail http://localhost:8000/api/ping || exit 1
       interval: 30s
       timeout: 5s
       retries: 1

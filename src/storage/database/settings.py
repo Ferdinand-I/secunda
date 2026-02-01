@@ -13,10 +13,11 @@ NAMING_CONVENTION = {
 
 metadata = MetaData(naming_convention=NAMING_CONVENTION)
 
-engine = create_async_engine(settings.db.url)
-async_session_maker = async_sessionmaker(
-    engine,
-    expire_on_commit=False,
+engine = create_async_engine(
+    settings.db.url,
     pool_size=settings.db.pool_size,
     max_overflow=settings.db.max_overflow,
+    echo=settings.db.echo,
 )
+
+async_session_maker = async_sessionmaker(engine, expire_on_commit=False)

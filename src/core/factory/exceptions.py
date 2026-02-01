@@ -7,7 +7,7 @@ class InvalidAPIKeyException(HTTPException):
         super().__init__(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="API Key is invalid",
-            headers={"WWW-Authenticate": "APIKey"},
+            headers={"WWW-Authenticate": "X-API-Key"},
         )
 
 

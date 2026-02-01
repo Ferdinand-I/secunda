@@ -2,8 +2,6 @@
 
 from fastapi import APIRouter
 
-from api.v1.routes.healthcheck import router as healthcheck_router
+from api.dependencies.auth import VerifyApiKey
 
-router = APIRouter(prefix="/v1")
-
-router.include_router(router=healthcheck_router, tags=["Healthcheck"])
+router = APIRouter(prefix="/v1", dependencies=[VerifyApiKey])  # Verify API Key on all `v1` endpoints

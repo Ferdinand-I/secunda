@@ -45,6 +45,7 @@ class DBConfig(BaseModel):
     # Engine
     pool_size: int = 1
     max_overflow: int = 2
+    echo: bool = True
 
     @property
     def url(self) -> URL:
