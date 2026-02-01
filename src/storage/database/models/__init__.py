@@ -9,4 +9,4 @@ __all__ = (
 from .activity import Activity
 from .base import Base
 from .building import Building
-from .organisation import Organization
+from .organization import Organization
