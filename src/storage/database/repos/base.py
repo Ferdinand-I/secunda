@@ -25,7 +25,7 @@ class AbstractRepository(ABC, Generic[T]):
         filters: dict[str, Any] | None = None,
         limit: int = settings.api.limit,
         offset: int = settings.api.offset,
-    ) -> list[T]: ...
+    ) -> Sequence[T]: ...
 
 
 class SQLAlchemyRepository(AbstractRepository[T]):

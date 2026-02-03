@@ -30,7 +30,9 @@ def upgrade() -> None:
             ["activity_id"], ["activities.id"], name=op.f("organizations_activities_activity_id_fkey")
         ),
         sa.ForeignKeyConstraint(
-            ["organization_id"], ["organizations.id"], name=op.f("organizations_activities_organization_id_fkey")
+            ["organization_id"],
+            ["organizations.id"],
+            name=op.f("organizations_activities_organization_id_fkey"),
         ),
         sa.PrimaryKeyConstraint("organization_id", "activity_id", name=op.f("organizations_activities_pkey")),
     )

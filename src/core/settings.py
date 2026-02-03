@@ -44,7 +44,7 @@ class DBConfig(BaseSettingsConfig):
     host: str = "localhost"  # Docker DSN
     port: int = 5432
     user: str = "postgres"
-    password: SecretStr = "postgres"
+    password: SecretStr
     name: str
 
     # Engine
@@ -65,7 +65,7 @@ class DBConfig(BaseSettingsConfig):
 
 
 class ServerConfig(BaseSettingsConfig):
-    host: IPv4Address = Field(default="0.0.0.0")
+    host: IPv4Address = Field(default=IPv4Address("0.0.0.0"))
     port: int = Field(gt=0, lt=65536, default=8000)
     workers: int = Field(gt=0, le=os.cpu_count() - 1)  # Limit workers depends on CPU cores
     reload: bool = True

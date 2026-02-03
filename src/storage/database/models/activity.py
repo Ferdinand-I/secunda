@@ -19,8 +19,10 @@ class Activity(Base, IdMixin):
     parent_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("activities.id"), nullable=True)
 
     # Relationships
-    parent: Mapped["Activity"] = relationship("Activity", remote_side="Activity.id", back_populates="children")
-    children: Mapped[list["Activity"]] = relationship("Activity", back_populates="parent")
+    parent: Mapped["Activity"] = relationship(
+        "Activity", remote_side="Activity.id", back_populates="children"
+    )
+    children: Mapped[list["Activity"]] = relationship("Activity", back_populates="parent", lazy="selectin")
     # M2M
     organizations: Mapped[list["Organization"]] = relationship(
         "Organization",
